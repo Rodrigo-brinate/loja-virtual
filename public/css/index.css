@@ -1,0 +1,29 @@
+
+
+.carousel {
+    width: 60%;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.card {
+    width: 195px;
+    padding: 10px;
+    display: inline-block !important;
+    margin: 10px;
+}
+.img-card {
+    width: 130px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title-card {
+    font-size: 20px;
+}
+
+.products {
+    margin: 10px;
+}
