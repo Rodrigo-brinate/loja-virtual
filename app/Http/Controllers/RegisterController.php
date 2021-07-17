@@ -15,7 +15,7 @@ class RegisterController extends Controller
         if ($name){
             return view('register', [ 'name' => $name]);
         }else{
-            return view('register', [ 'name' => null]);
+            return view('register', [ 'name' => null,'ranking' => null]);
         }
        
     }
@@ -52,6 +52,7 @@ class RegisterController extends Controller
            
            $request->session()->put('name', $request->input('name'));
            $request->session()->put('email', $request->input('email'));
+           $request->session()->put('ranking', 3 );
 
             return redirect('/');
         }

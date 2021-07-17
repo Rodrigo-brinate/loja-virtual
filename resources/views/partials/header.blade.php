@@ -20,6 +20,9 @@
 <input class="search" type="text" placeholder="pesquisar">
 <img class="cart" src="./img/cart.png" alt="">
 <img class="favorites" src="./img/favorites.png" alt="">
+@if ($ranking == 1 || $ranking == 2)
+<a href="{{route('adm.index')}}" class="adm">administrador</a>
+@endif
 
 <div class="profile">
     

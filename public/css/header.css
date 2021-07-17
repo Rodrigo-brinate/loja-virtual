@@ -73,3 +73,9 @@ a:hover{
     text-decoration: none;
     color: inherit;
 }
+
+.adm {
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+}

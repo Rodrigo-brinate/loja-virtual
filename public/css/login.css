@@ -36,3 +36,22 @@ form.login {
     box-shadow: 0px 0px 114px 0px rgba(0,0,0,0.75);
     text-align: center;
 }
+
+@keyframes go-back {
+    0% {
+        transform: translateX(-800px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.alert-danger {
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    transition-delay: 600ms;
+    animation: go-back 500ms;
+}
+

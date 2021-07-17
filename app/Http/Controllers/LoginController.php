@@ -14,9 +14,9 @@ class LoginController extends Controller
 
         //checks if exist a session
         if ($name){
-            return view('login', [ 'name' => $name, 'email' => null,  'password' => null] );
+            return view('login', [ 'name' => $name, 'email' => null,  'password' => null ,'erro' => null] );
         }else{
-            return view('login', [ 'name' => null, 'email' => null,  'password' => null]);
+            return view('login', [ 'name' => null, 'email' => null,  'password' => null,'ranking' => null ,'erro' => null]);
         }
     }
 
@@ -52,9 +52,22 @@ public function authentication(Request $request){
    // search the datas from database
     $user = new User();
     $user = $user->where('email', $email)->get()->first();
+
+
+    if ($user == null){
+        return view('login', [
+             'name' => null,
+             'email' => $email,
+             'password' => $password,
+             'ranking' => null,
+             'erro' => 'email ou senha incorreta'
+            ]);
+    }else{
         $userPassword = $user->password;
         $userName = $user->name;
         $userEmail = $user->email;
+        $ranking = $user->ranking;
+        
 
 
         // checks the password
@@ -62,13 +75,21 @@ public function authentication(Request $request){
 
         $request->session()->put('email', $request->input('email'));
         $request->session()->put('name', $userName);
+        $request->session()->put('ranking', $ranking);
+        
 
         return redirect('/');
 
     }else{
-        return view('login', [ 'name' => null, 'email' => $email,  'password' => $password]);
+        return view('login', [ 
+            'name' => null, 
+            'email' => $email, 
+            'erro' => 'email ou senha incorreta', 
+            'password' => $password,
+            'ranking' => null
+        ]);
     }
-   
+}
 
 }
 

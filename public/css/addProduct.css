@@ -1,0 +1,41 @@
+form {
+
+    grid-column-start: 3;
+ grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
+
+input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+span {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+    margin-top: 20px;
+   
+
+}
+
+button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+     margin-top: 15px;
+     padding: 10px;
+     background-color: white;
+     border-radius: 8px;
+     border: 1px solid;
+}
+.addProduct {
+    grid-column-start: 3;
+    grid-column-end: 7;
+}

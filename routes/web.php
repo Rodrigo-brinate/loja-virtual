@@ -28,3 +28,10 @@ Route::post('/register', [\App\Http\Controllers\RegisterController::class, 'regi
 
 // routes of logout
 Route::get('/logout', [\App\Http\Controllers\LogoutController::class, 'logout'])->name('app.logout');
+
+// routes of administrator
+Route::get('/adm', [\App\Http\Controllers\IndexAdmController::class, 'index'])->name('adm.index');
+
+// routes for add products
+Route::get('/addProduct', [\App\Http\Controllers\AddProductController::class, 'index'])->name('adm.addProduct');
+Route::post('/addProduct', [\App\Http\Controllers\AddProductController::class, 'add'])->name('adm.addProduct');

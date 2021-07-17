@@ -5,6 +5,12 @@
 
 <link rel="stylesheet"  href="./css/login.css">
 
+@if ($erro != null)
+    <div class="alert alert-danger" width="80%" role="alert">
+        email ou senha incorreta
+    </div>
+@endif
+
     <form class="login" method="post" action="{{route('app.login')}}" >
 @csrf
         <h3>Login</h3>

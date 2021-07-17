@@ -11,11 +11,13 @@ class IndexController extends Controller
 
         //checks if exist a session
         $name = $request->session()->get('name');
+        $ranking = $request->session()->get('ranking');
+      
         if ($name){
-            return view('index', [ 'name' => $name]);
+            return view('index', [ 'name' => $name, 'ranking' => $ranking]);
         }else{
 
-            return view('index', [ 'name' => null]);
+            return view('index', [ 'name' => null, 'ranking' => null]);
         }
 
 
