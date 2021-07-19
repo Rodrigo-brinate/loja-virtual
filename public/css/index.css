@@ -28,3 +28,10 @@
 .products {
     margin: 10px;
 }
+
+.description-card {
+    max-width: 25ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

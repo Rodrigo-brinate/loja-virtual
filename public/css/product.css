@@ -1,0 +1,61 @@
+h3 {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h6 {
+    margin-left: 10%;
+    color: green;
+}
+
+p.description {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    padding: 10px;
+
+}
+
+span.commet {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+
+    
+}
+
+.star {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button.comment{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+    margin-top: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+}

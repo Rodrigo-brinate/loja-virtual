@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 //route of home page
 Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('app.index');
+Route::get('/product/{id}', [\App\Http\Controllers\ProductController::class, 'index'])->name('app.productIndex');
 
 // routes of login
 Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('app.login');
@@ -35,3 +36,9 @@ Route::get('/adm', [\App\Http\Controllers\IndexAdmController::class, 'index'])->
 // routes for add products
 Route::get('/addProduct', [\App\Http\Controllers\AddProductController::class, 'index'])->name('adm.addProduct');
 Route::post('/addProduct', [\App\Http\Controllers\AddProductController::class, 'add'])->name('adm.addProduct');
+
+Route::get('/viewProduct', [\App\Http\Controllers\ViewProductController::class, 'index'])->name('adm.viewProduct');
+
+Route::get('/delete/{id}', [\App\Http\Controllers\DeleteProductController::class, 'index'])->name('adm.delete');
+Route::get('/edit/{id}', [\App\Http\Controllers\EditProductController::class, 'index'])->name('adm.edit');
+Route::post('/edit/{id}', [\App\Http\Controllers\EditProductController::class, 'edit'])->name('adm.edit');

@@ -10,20 +10,23 @@
     
 </head>
 <body>
-    
+    <div class="container1">
 <header>
 
+
 <a href="{{ route('app.index') }}">
-<img src="./img/logo.png" class="logo" alt="logo">
+<img src="./img/logo.png" class="logo" width="100px" alt="logo">
 </a>
 
+<span >
+<div><a href="">contato</a> <a href="">sobre nos</a></div>
 <input class="search" type="text" placeholder="pesquisar">
-<img class="cart" src="./img/cart.png" alt="">
-<img class="favorites" src="./img/favorites.png" alt="">
+</span>
+<div class="rigth">
+    
 @if ($ranking == 1 || $ranking == 2)
 <a href="{{route('adm.index')}}" class="adm">administrador</a>
 @endif
-
 <div class="profile">
     
 @if ($name != null)
@@ -36,8 +39,15 @@
 <p>entre ou cadastre-se</p>
 </a>
 @endif
+</div>
+<img class="cart" src="./img/cart.png" alt="">
+<img class="favorites" src="./img/favorites.png" alt="">
 
 </div>
+
+
+
+
 <ul class="categories">
 <li>categoria</li>
 <li>categoria</li>
@@ -53,3 +63,4 @@
 
 </ul>
 </header>
+</div>

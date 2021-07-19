@@ -1,4 +1,4 @@
-<div class="container"> 
+<div class="container1"> 
 @include('partials.menuAdm')
 <link rel="stylesheet" href="./css/indexAdm.css">
 <h3 class="thisMonth">este mês</h3>

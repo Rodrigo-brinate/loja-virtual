@@ -3,66 +3,72 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
     width: 100%;
     height: 100%;
 }
 
+.container1 {
+    display: flex;
+
+}
+
 header{
-    width: 100%;
-    height: 150px;
     background-color: rgb(108, 194, 243);
+    width: 100%;
+}
+
+
+.rigth {
+    display: inline;
+    align-items:flex-end;
+    justify-content: end;
 }
 
 .logo {
-    float: left;
-    margin: 20px;
-    width: 80px;
+   width: 10%;
+   justify-content: start;
+   margin-left: 2%;
 }
+
+span {
+    display: inline-block;
+    margin-left: 15%;
+    width: 30%;
+}
+
 .search {
     padding: 15px;
-    width: 30%;
-    margin-left: 20%;
-    margin-top: 30px;
-    display: inline-block;
+    width: 100%;
     border-radius: 8px;
     border: 1px solid black;
 }
 
 .cart {
-    width: 20px;
-    float: right;
-    margin-top: 45px;
-    margin-right: 5vw;
+  width: 2%;
+  margin-left: 2%;
 }
 
 .favorites {
     width: 20px;
-    float: right;
-    margin-top: 45px;
-    margin-right: 2%;
+    margin-left: 2%;
 }
 
 .categories {
-    display: block;
-    list-style: none;
-    margin-left: 10px;
-    float: inline-end;
-    margin-top: 40px;
+    margin-top: 2%;
 }
 
 .categories li {
-    display: inline;
-    margin-left: 10px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
+    display: inline-block;
 }
 
 .profile {
-   color: white;
-    float: right;
-    margin-top: 45px;
-    margin-right: 2%;
+    color: white;
+    margin-top: 2%;
+    display: inline-block;
+    margin-left: 2%;
 }
 
 a {
@@ -78,4 +84,61 @@ a:hover{
     padding: 10px;
     background: #fff;
     border-radius: 8px;
+    margin-left: 5%;
 }
+
+@media only screen and (max-width: 800px) {
+    .categories {
+    display: none;
+    }
+    h5 {
+        font-size: 1rem;
+    }
+    .logo {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    span {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+    .adm {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: max-content;
+        margin-top: 20px;
+    }
+    .profile {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: max-content;
+    }
+    .cart {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-top: 10px;
+    }
+    .favorites {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-top: 10px;
+    }
+    }
+
+   
+
+
+
+
+
+
+
+
+
