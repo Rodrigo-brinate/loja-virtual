@@ -17,6 +17,7 @@
             <a href="{{route('adm.addProduct')}}"><li>adicionar produto</li></a>
             <a href="{{route('adm.viewProduct')}}"><li>ver produto</li></a>
             <a href="{{route('app.index')}}"><li>voltar a loja</li></a>
+            <a href="{{route('adm.addCategory')}}"><li>adicionar categirias</li></a>
            
             
         </ul>
@@ -30,6 +31,7 @@
           <th scope="col">valor do produto</th>
           <th scope="col"><a class="editar" href="">editar</a></th>
           <th scope="col"><a class="excluir" href="">excluir</a></th>
+
           
         </tr>
       </thead>

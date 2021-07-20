@@ -42,3 +42,14 @@ Route::get('/viewProduct', [\App\Http\Controllers\ViewProductController::class, 
 Route::get('/delete/{id}', [\App\Http\Controllers\DeleteProductController::class, 'index'])->name('adm.delete');
 Route::get('/edit/{id}', [\App\Http\Controllers\EditProductController::class, 'index'])->name('adm.edit');
 Route::post('/edit/{id}', [\App\Http\Controllers\EditProductController::class, 'edit'])->name('adm.edit');
+
+
+
+Route::get('/addCategory', [\App\Http\Controllers\AddCategoryController::class, 'index'])->name('adm.addCategory');
+Route::post('/addCategory', [\App\Http\Controllers\AddCategoryController::class, 'add'])->name('adm.addCategory');
+
+
+Route::get('/categoryView', [\App\Http\Controllers\CategoryViewController::class, 'index'])->name('adm.categoryView');
+Route::get('/delete/category/{id}', [\App\Http\Controllers\DeleteCategoryController::class, 'index'])->name('adm.delete');
+Route::get('/edit/category/{id}', [\App\Http\Controllers\EditCategoryController::class, 'index'])->name('adm.edit');
+Route::post('/edit/category/{id}', [\App\Http\Controllers\EditCategoryController::class, 'edit'])->name('adm.edit');

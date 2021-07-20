@@ -7,13 +7,16 @@ use Illuminate\Support\Facades\DB;
 
 class AddProductController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
        
-       
+        $ranking = $request->session()->get('ranking');
+        if ($ranking == 2 || $ranking == null){
+            return redirect('/');
+        }else{
        
         return view('addProduct' ,['sucess' => null, 'erro' => null]);
     }
-
+    }
     public function add(Request $request) {
 
        
