@@ -13,7 +13,7 @@ class EditCategoryController extends Controller
             return redirect('/');
         }else{
         $category = DB::table('category')->where('id', '=', $id)->first();
-        return view('editCategory' , ['category'=> $category]);
+        return view('editCategory' , ['category'=> $category, 'ranking'=> $ranking]);
     }}
 
 

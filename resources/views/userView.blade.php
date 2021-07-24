@@ -4,24 +4,25 @@
 <table class="table table-striped table-hover" >
     <thead>
         <tr>
-          <th scope="col">nome do produto</th>
-          <th scope="col">descrição do produto</th>
-          <th scope="col">valor do produto</th>
+          <th scope="col">nome do usário</th>
+          <th scope="col">emai do usuario</th>
+          <th scope="col">ranking do usuario</th>
           <th scope="col"><a class="editar" href="">editar</a></th>
           <th scope="col"><a class="excluir" href="">excluir</a></th>
           
         </tr>
       </thead>
       <tbody>
-          @foreach ($product as $item)
+          @foreach ($user as $item)
               
          
         <tr>
-          <th scope="row">{{$item->product_name}}</th>
-          <td>{{$item->product_description}}</td>
-          <td>{{$item->value}}</td>
-          <td><a class="edit" href="/edit/{{$item->id}}">editar</a></td>
-          <td><a class="delete" href="/delete/{{$item->id}}">excluir</a></td>
+          
+          <td>{{$item->name}}</td>
+          <td>{{$item->email}}</td>
+          <td>{{$item->ranking}}</td>
+          <td><a class="edit" href="/edit/category/{{$item->id}}">editar</a></td>
+          <td><a class="delete" href="/delete/category/{{$item->id}}">excluir</a></td>
         </tr> 
         @endforeach
        </tbody>

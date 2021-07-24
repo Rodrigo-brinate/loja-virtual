@@ -10,5 +10,5 @@ class RegisterUser extends Model
     use HasFactory;
     
     protected $table = 'users';
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'ranking', 'password'];
 }

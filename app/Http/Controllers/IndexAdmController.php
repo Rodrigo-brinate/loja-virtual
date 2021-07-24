@@ -11,7 +11,7 @@ class IndexAdmController extends Controller
         if ($ranking == 2 || $ranking == null){
             return redirect('/');
         }else{
-        return view('indexAdm');
+        return view('indexAdm', [ 'ranking'=> $ranking]);
         }
     }
 }

@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RegisterUser;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
     public function register(Request $request) {
-
+        $category = DB::table('category')->get();
         //checks if exist a session
         $name = $request->session()->get('name');
         if ($name){
-            return view('register', [ 'name' => $name]);
+            return view('register', [ 'name' => $name,'category' => $category]);
         }else{
-            return view('register', [ 'name' => null,'ranking' => null]);
+            return view('register', [ 'name' => null,'ranking' => null,'category' => $category]);
         }
        
     }
@@ -47,11 +48,13 @@ class RegisterController extends Controller
            $register->create([
                 'name' => $request->input('name'),
                 'email' => $request->input('email'),
+                'ranking' => 3,
                 'password' => Hash::make($request->input('password'))
            ]);
            
            $request->session()->put('name', $request->input('name'));
            $request->session()->put('email', $request->input('email'));
+           $request->session()->put('id_user', DB::table('users')->orderBy('id', 'desc')->first()->id);
            $request->session()->put('ranking', 3 );
 
             return redirect('/');

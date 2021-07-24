@@ -9,33 +9,44 @@ class AddProductController extends Controller
 {
     public function index(Request $request){
        
+        $category = DB::table('category')->limit(10)->get();
+
         $ranking = $request->session()->get('ranking');
         if ($ranking == 2 || $ranking == null){
             return redirect('/');
         }else{
        
-        return view('addProduct' ,['sucess' => null, 'erro' => null]);
+        return view('adm.addProduct' ,[
+            'sucess' => null,
+             'erro' => null,
+              'ranking'=> $ranking,
+               'category' => $category
+                ] );
     }
     }
     public function add(Request $request) {
 
-       
+        $category = DB::table('category')->get();
 //// get the datas of form 
         $name_product = $request->input('name');
         $description = $request->input('description');
         $value = $request->input('value');
         $photo_main = $request->file('main');
+        $category_id = $request->input('category');
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 //var_dump($name_product);
 //var_dump($description);
 //var_dump($value);
+var_dump(str_replace('/','',$name_product ));
+$name_product = str_replace('/','',$name_product );
 
 $name_photo_main = uniqid(date('HisYmd'));
 
 $extension_main = $photo_main->extension();
 $nameFile_main = "{$name_photo_main}.{$extension_main}";
 $photo_main = $photo_main->storeAs('photo_main', $nameFile_main);
+
 
 $product = DB::table('products')->where('product_name', $name_product)->first();
 
@@ -48,6 +59,8 @@ if ($product == NULL){
              'product_name' => $name_product,
              'product_description' => $description,
              'photo_main' => $photo_main,
+             'user_id' => $request->session()->get('id_user'),
+             'category_id' => $category_id,
              'value' => $value 
               ]
         );
@@ -98,12 +111,25 @@ $lastProduct = $product->id ;
        DB::table('images')->insert(
         ['image' => $upload, 'product_id' => $lastProduct]
     );
-    
+    $ranking = $request->session()->get('ranking');
        
         }
-        return view('addProduct', ['erro' => null,'sucess' => 'produto cadastrado com sucsso']);
+        $category = DB::table('category')->limit(10)->get();
+        return view('adm.addProduct', [
+            'erro' => null,
+            'sucess' => 'produto cadastrado com sucsso',
+            'ranking'=> $ranking,
+            'category' => $category
+            ]);
     }else{
-        return view('addProduct', ['sucess' => null, 'erro' => 'ops! já existe um produto com esse nome']);
+        $category = DB::table('category')->limit(10)->get();
+        $ranking = $request->session()->get('ranking');
+        return view('adm.addProduct', [
+            'sucess' => null,
+            'erro' => 'ops! já existe um produto com esse nome',
+            'ranking'=> $ranking,
+            'category' => $category
+            ]);
     }
 
         

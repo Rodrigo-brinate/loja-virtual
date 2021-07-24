@@ -1,5 +1,19 @@
 
+.search {
+    background-image: url(/img/search.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
 
+.card {
+    display: inline-block;
+}
+
+.card-title {
+    height: 24vh;
+}
+
+/*
 .carousel {
     width: 60%;
     margin-top: 15px;
@@ -34,4 +48,4 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
+}*/

@@ -40,7 +40,7 @@
 </a>
 @endif
 </div>
-<img class="cart" src="./img/cart.png" alt="">
+<a href="{{route('app.cart')}}"><img class="cart" src="../img/cart.png" alt=""></a>
 <img class="favorites" src="./img/favorites.png" alt="">
 
 </div>
@@ -49,16 +49,11 @@
 
 
 <ul class="categories">
-<li>categoria</li>
-<li>categoria</li>
-<li>categoria</li>
-<li>categoria</li>
-<li>categoria</li>
-<li>categoria</li>
-<li>categoria</li>
-<li>categoria</li>
-<li>categoria</li>
-<li>categoria</li>
+    @foreach ($category as $item)
+        
+    
+<li>{{$item->category_name}}</li>
+@endforeach
 
 
 </ul>

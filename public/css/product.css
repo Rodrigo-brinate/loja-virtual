@@ -59,3 +59,25 @@ button.comment{
     border-radius: 5px;
     background-color: #fff;
 }
+
+.checkout {
+    background-color: green;
+    padding: 10px;
+    display: inline-table;
+    margin-left: 10px;
+    margin-right: auto;
+    width: max-content;
+    border-radius: 8px;
+
+}
+
+.cart-purshase {
+    background-color: rgb(252, 215, 8);
+    padding: 10px;
+    display: inline-table;
+    border-radius: 8px;
+    margin-left: 10%;
+    margin-right: auto;
+    width: max-content;
+
+}

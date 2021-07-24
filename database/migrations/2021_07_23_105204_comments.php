@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRegisterProductsTable extends Migration
+class Comments extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,16 @@ class CreateRegisterProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('comment', function (Blueprint $table) {
             $table->id();
-            $table->string('product_name');
-            $table->string('product_description');
-            $table->string('photo_main');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('category');
-            $table->decimal('value', 8, 2);
-            
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->integer('clacification');
+            $table->text('comment');
             $table->timestamps();
         });
-        
-       
     }
 
     /**
@@ -37,6 +32,6 @@ class CreateRegisterProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        chema::dropIfExists('comment');
     }
 }

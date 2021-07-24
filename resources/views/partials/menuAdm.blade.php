@@ -15,10 +15,12 @@
         <ul class="menu1">
             <a href="{{route('adm.addProduct')}}"><li>adicionar produto</li></a>
             <a href="{{route('adm.viewProduct')}}"><li>ver produto</li></a>
-            <a href="{{route('app.index')}}"><li>voltar a loja</li></a>
-            <li>mananger user</li>
+            @if ($ranking == 1)
+               <a href="{{route('adm.userView')}}"><li>gerenciar usuarios</li></a> 
+            @endif
+            
             <a href="{{route('adm.addCategory')}}"><li>adicionar categirias</li></a>
             <a href="{{route('adm.categoryView')}}"><li>ver categirias</li></a>
-           
+           <a href="{{route('app.index')}}"><li>voltar a loja</li></a>
         </ul>
     </div>

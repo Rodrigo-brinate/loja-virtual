@@ -11,13 +11,14 @@ class EditProductController extends Controller
         if ($ranking == 2 || $ranking == null){
             return redirect('/');
         }else{
-        $product = DB::table('products')->where('id', '=', $id)->first();
-        return view('editProduct' , ['product'=> $product]);
+        $category = DB::table('category')->limit(10)->get();
+        $product = DB::table('products')->where('product_name', '=', $id)->first();
+        return view('adm.editProduct' , ['product'=> $product, 'category' => $category, 'ranking'=> $ranking]);
     }}
 
     public function edit($id, Request $request){
         DB::table('products')
-        ->where('id', $id)
+        ->where('product_name', $id)
         ->update([
             'product_name' => $request->input('product_name'),
             'product_description' => $request->input('product_description'),

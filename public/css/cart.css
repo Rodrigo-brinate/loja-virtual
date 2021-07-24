@@ -1,0 +1,38 @@
+.cart-img {
+    display: inline;
+    margin-right: 70px;
+    margin-left: 2%;
+}
+
+ul {
+    list-style: none;
+}
+
+h6 {
+    display: inline;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 60%;
+}
+
+.total {
+    width: 100%;
+    position: fixed;
+    bottom: 2px;
+    left: 0px;
+    padding-left: 80%;
+    padding-top: 10px;
+    background-color: #dfdfdf;
+    height: 10%;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.checkout {
+    padding: 10px;
+    background-color: green;
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-top: 2px;
+}

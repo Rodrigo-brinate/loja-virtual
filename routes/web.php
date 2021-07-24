@@ -53,3 +53,21 @@ Route::get('/categoryView', [\App\Http\Controllers\CategoryViewController::class
 Route::get('/delete/category/{id}', [\App\Http\Controllers\DeleteCategoryController::class, 'index'])->name('adm.delete');
 Route::get('/edit/category/{id}', [\App\Http\Controllers\EditCategoryController::class, 'index'])->name('adm.edit');
 Route::post('/edit/category/{id}', [\App\Http\Controllers\EditCategoryController::class, 'edit'])->name('adm.edit');
+
+Route::get('/userView', [\App\Http\Controllers\UserViewController::class, 'index'])->name('adm.userView');
+
+Route::get('/cart/{id}', [\App\Http\Controllers\CartController::class, 'add'])->name('app.addCart');
+
+Route::get('/cart', [\App\Http\Controllers\CartController::class, 'index'])->name('app.cart');
+Route::get('/delete-cart/{id}', [\App\Http\Controllers\CartController::class, 'delete'])->name('app.cart-delete');
+
+
+Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'index'])->name('app.profile');
+
+Route::post('/favorite/add', [\App\Http\Controllers\FavoriteController::class, 'add'])->name('app.addFavorite');
+
+
+Route::get('/favorite', [\App\Http\Controllers\FavoriteController::class, 'index'])->name('app.favorite');
+Route::get('/delete-favorite/{id}', [\App\Http\Controllers\FavoriteController::class, 'delete'])->name('app.cart-delete');
+
+Route::post('comment/', [\App\Http\Controllers\CommentController::class, 'add'])->name('app.addComment');
