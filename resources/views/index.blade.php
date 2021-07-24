@@ -102,17 +102,18 @@
 
 
     <main class="d-block">
+      <br><br>
       <div class="d-block w-100 my-auto " >
               <div id="carouselExampleInterval" class="carousel w-75 mx-auto justify-center slide" data-bs-ride="carousel">
                   <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="10000">
-                      <img src="https://cdn.pixabay.com/photo/2016/11/30/12/17/cells-1872666_960_720.jpg" class="d-block w-100" alt="...">
+                      <img src="https://cdn.pixabay.com/photo/2016/12/03/01/35/black-friday-1878945_960_720.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item" data-bs-interval="2000">
-                      <img src="https://cdn.pixabay.com/photo/2016/11/30/12/17/cells-1872666_960_720.jpg" class="d-block w-100" alt="...">
+                      <img src="https://cdn.pixabay.com/photo/2016/12/03/01/35/black-friday-1878945_960_720.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                      <img src="https://cdn.pixabay.com/photo/2016/11/30/12/17/cells-1872666_960_720.jpg" class="d-block w-100" alt="...">
+                      <img src="https://cdn.pixabay.com/photo/2016/12/03/01/35/black-friday-1878945_960_720.png" class="d-block w-100" alt="...">
                     </div>
                   </div>
                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">

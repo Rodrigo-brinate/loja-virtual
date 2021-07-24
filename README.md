@@ -2,10 +2,9 @@ esse projete tem a finalidade de criar uma loja virtual em que existe um adminis
 
 
 
-<img src="./Captura de tela de 2021-07-18 21-33-00.png">
-<img src="./Captura de tela de 2021-07-18 21-33-09.png">
-<img src="./Captura de tela de 2021-07-18 21-33-14.png">
-<img src="./Captura de tela de 2021-07-18 21-33-17.png">
-<img src="./Captura de tela de 2021-07-18 21-33-19.png">
-<img src="./Captura de tela de 2021-07-18 21-33-24.png">
-<img src="./Captura de tela de 2021-07-18 21-33-33.png">
+<img src="./screen-shots/Captura de tela de 2021-07-24 15-54-23.png">
+<img src="./screen-shots/Captura de tela de 2021-07-24 15-54-28.png">
+<img src="./screen-shots/Captura de tela de 2021-07-24 15-54-39.png">
+<img src="./screen-shots/Captura de tela de 2021-07-24 15-55-30.png">
+<img src="./screen-shots/Captura de tela de 2021-07-24 15-55-41.png">
+<img src="./screen-shots/Captura de tela de 2021-07-24 15-55-49.png">
