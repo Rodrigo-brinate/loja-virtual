@@ -1,7 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProfileController;
+//use App\Http\Controllers\FavoriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,60 +23,68 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //route of home page
-Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('app.index');
-Route::get('/product/{id}', [\App\Http\Controllers\ProductController::class, 'index'])->name('app.productIndex');
+Route::get('/', [IndexController::class, 'index'])->name('app.index');
+Route::get('/product/{id}', [ProductController::class, 'index'])->name('app.productIndex');
 
 // routes of login
-Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('app.login');
-Route::post('/login', [\App\Http\Controllers\LoginController::class, 'authentication'])->name('app.login');
+Route::get('/login', [LoginController::class, 'login'])->name('app.login');
+Route::post('/login', [LoginController::class, 'authentication'])->name('app.login');
+
+// routes of logout
+Route::get('/logout', [LoginController::class, 'logout'])->name('app.logout');
 
 
 // routes of register 
-Route::get('/register', [\App\Http\Controllers\RegisterController::class, 'register'])->name('app.register');
-Route::post('/register', [\App\Http\Controllers\RegisterController::class, 'registerUser'])->name('app.register');
+Route::get('/register', [RegisterController::class, 'register'])->name('app.register');
+Route::post('/register', [RegisterController::class, 'registerUser'])->name('app.register');
 
 
-// routes of logout
-Route::get('/logout', [\App\Http\Controllers\LogoutController::class, 'logout'])->name('app.logout');
+
 
 // routes of administrator
-Route::get('/adm', [\App\Http\Controllers\IndexAdmController::class, 'index'])->name('adm.index');
-
-// routes for add products
-Route::get('/addProduct', [\App\Http\Controllers\AddProductController::class, 'index'])->name('adm.addProduct');
-Route::post('/addProduct', [\App\Http\Controllers\AddProductController::class, 'add'])->name('adm.addProduct');
-
-Route::get('/viewProduct', [\App\Http\Controllers\ViewProductController::class, 'index'])->name('adm.viewProduct');
-
-Route::get('/delete/{id}', [\App\Http\Controllers\DeleteProductController::class, 'index'])->name('adm.delete');
-Route::get('/edit/{id}', [\App\Http\Controllers\EditProductController::class, 'index'])->name('adm.edit');
-Route::post('/edit/{id}', [\App\Http\Controllers\EditProductController::class, 'edit'])->name('adm.edit');
+Route::get('/adm', [IndexAdmController::class, 'index'])->name('adm.index');
 
 
 
-Route::get('/addCategory', [\App\Http\Controllers\AddCategoryController::class, 'index'])->name('adm.addCategory');
-Route::post('/addCategory', [\App\Http\Controllers\AddCategoryController::class, 'add'])->name('adm.addCategory');
+////// produtos  ////////////////////////////////////////////////////////
+Route::get('/addProduct', [ProductController::class, 'create'])->name('adm.addProduct');
+Route::post('/addProduct', [ProductController::class, 'store'])->name('adm.addProduct');
+Route::get('/viewProduct', [ProductController::class, 'show'])->name('adm.viewProduct');
+Route::get('/delete/{id}', [ProductController::class, 'destroy'])->name('adm.delete');
+Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('adm.edit');
+Route::post('/edit/{id}', [ProductController::class, 'update'])->name('adm.edit');
 
 
-Route::get('/categoryView', [\App\Http\Controllers\CategoryViewController::class, 'index'])->name('adm.categoryView');
-Route::get('/delete/category/{id}', [\App\Http\Controllers\DeleteCategoryController::class, 'index'])->name('adm.delete');
-Route::get('/edit/category/{id}', [\App\Http\Controllers\EditCategoryController::class, 'index'])->name('adm.edit');
-Route::post('/edit/category/{id}', [\App\Http\Controllers\EditCategoryController::class, 'edit'])->name('adm.edit');
+//////// category //////////////////////////////////////////////
+Route::get('/addCategory', [CategoryController::class, 'index'])->name('adm.addCategory');
+Route::post('/addCategory', [CategoryController::class, 'create'])->name('adm.addCategory');
+Route::get('/categoryView', [CategoryController::class, 'show'])->name('adm.categoryView');
+Route::get('/delete/category/{id}', [CategoryController::class, 'destroy'])->name('adm.delete');
+Route::get('/edit/category/{id}', [CategoryController::class, 'edit'])->name('adm.edit');
+Route::post('/edit/category/{id}', [CategoryController::class, 'update'])->name('adm.edit');
+
+
 
 Route::get('/userView', [\App\Http\Controllers\UserViewController::class, 'index'])->name('adm.userView');
 
-Route::get('/cart/{id}', [\App\Http\Controllers\CartController::class, 'add'])->name('app.addCart');
-
-Route::get('/cart', [\App\Http\Controllers\CartController::class, 'index'])->name('app.cart');
-Route::get('/delete-cart/{id}', [\App\Http\Controllers\CartController::class, 'delete'])->name('app.cart-delete');
+///// carrinho /////////////////////////////////////////////////////
+Route::get('/cart/{id}',       [CartController::class, 'create'])->name('app.addCart');
+Route::get('/cart',            [CartController::class, 'index'])->name('app.cart');
+Route::get('/deleteCart/{id}', [CartController::class, 'delete'])->name('app.cartDelete');
 
 
 Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'index'])->name('app.profile');
 
-Route::post('/favorite/add', [\App\Http\Controllers\FavoriteController::class, 'add'])->name('app.addFavorite');
 
 
-Route::get('/favorite', [\App\Http\Controllers\FavoriteController::class, 'index'])->name('app.favorite');
-Route::get('/delete-favorite/{id}', [\App\Http\Controllers\FavoriteController::class, 'delete'])->name('app.cart-delete');
+//// favoritos //////////////////////////////////////////////////////////////
+Route::post('/favorite/add',       [FavoriteController::class, 'create'])->name('app.addFavorite');
+Route::get('/favorite',            [FavoriteController::class, 'index'])->name('app.favorite');
+Route::get('/deleteFavorite/{id}', [FavoriteController::class, 'delete'])->name('app.favoriteDelete');
 
-Route::post('comment/', [\App\Http\Controllers\CommentController::class, 'add'])->name('app.addComment');
+
+
+
+
+Route::post('comment/', [CommentController::class, 'create'])->name('app.addComment');
+

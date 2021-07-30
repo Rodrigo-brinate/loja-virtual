@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Category;
+use App\Models\Favorite;
 
 class FavoriteController extends Controller
 {
@@ -22,7 +24,7 @@ public function index(Request $request){
         ->session()
         ->get('name');
 
-        $category = DB::table('category')
+        $category = Category::select('category_name')
         ->limit(10)
         ->get();
 
@@ -33,24 +35,22 @@ public function index(Request $request){
 
         $total = 0;
         foreach ($product as $item){
-           $total += $item->value;
+             $total += $item->value;
         }
                     
         return view('favorite',
-        [
-       'ranking' => $ranking,
-       'name' => $name,
-       'category' => $category,
-       'product' => $product,
-       'total' => $total
-       ]);
+         [
+            'ranking' => $ranking,
+            'name' => $name,
+            'category' => $category,
+            'product' => $product,
+            'total' => $total
+        ]);
 }
 
 
-    public function add(Request $request){
-if($request
-->session()
-->get('id_user')){
+    public function create(Request $request){
+    if($request->session()->get('id_user')){
 
 
 
@@ -61,30 +61,28 @@ if($request
         ->session()
         ->get('id_user');
 
-$product = DB::table('favorite')
-        ->where('product_id', '=', $id)
+        $product = Favorite::where('product_id', '=', $id)
         ->first();
 
-if(!$product){
-        DB::table('favorite')
-            ->insert(
-                [
-                'product_id' => $id,
-                'user_id' => $user_id
-                     ]
 
-            );
-        }
+    if(!$product){
+        Favorite::create([
+            'product_id' => $id,
+            'user_id' => $user_id
+        ]);
+    }
         return redirect('/#product');
-    }else {
+
+    }else{
+
         return redirect('/login');
     }
-    }
+}
 
     public function delete($id){
-        $product = DB::table('favorite')->where('favorite.product_id', '=', $id);
+        $product = Favorite::where('favorite.product_id', $id);
         if($product){
-            DB::table('favorite')->where('favorite.product_id', '=', $id)->delete();
+            Favorite::where('favorite.product_id', $id)->delete();
             return redirect('/favorite');
     }
 }}

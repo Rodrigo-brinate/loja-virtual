@@ -157,10 +157,10 @@
                 {{$profile->name}}
               </td>
               <td class="w-max ml-2 h-5">
-                <a class=" no-underline  rounded-lg text-black " href="/edit/category/{{$item->id}}">{{$profile->email}}</a>
+                <a class=" no-underline  rounded-lg text-black " href="/edit/category/{{$profile->id}}">{{$profile->email}}</a>
               </td>
               <td class="w-max ml-2 h-5">
-                <a class="no-underline  bg-yellow-500 p-2 rounded-lg text-black " href="/delete/category/{{$item->id}}">editar</a>
+                <a class="no-underline  bg-yellow-500 p-2 rounded-lg text-black " href="/delete/category/{{$profile->id}}">editar</a>
               </td>
             </tr> 
            </tbody>

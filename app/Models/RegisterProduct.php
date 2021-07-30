@@ -9,5 +9,12 @@ class RegisterProduct extends Model
 {
     use HasFactory;
     protected $table = 'products';
-    protected $fillable = ['product-name', 'product-description', 'value'];
+    protected $fillable = [
+        'product_name',
+        'product_description',
+        'photo_main',
+        'user_id',
+        'category_id',
+        'value'
+        ];
 }

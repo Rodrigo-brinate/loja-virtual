@@ -6,14 +6,25 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use App\Models\Category;
 
 class LoginController extends Controller
 {
     public function login(Request $request){
-        $category = DB::table('category')->limit(10)->get();
-        $name = $request->session()->get('name');
-        $email = $request->session()->get('email');
-        $ranking = $request->session()->get('ranking');
+       
+        $category = Category::select('category_name')
+        ->limit(10)
+        ->get();
+
+        $name = $request
+        ->session()
+        ->get('name');
+
+        $email = $request->session()
+        ->get('email');
+
+        $ranking = $request->session()
+        ->get('ranking');
 
         //checks if exist a session
         if ($name){
@@ -114,6 +125,12 @@ public function authentication(Request $request){
     }
 }
 
+}
+
+public function logout(Request $request){
+    $request->session()->forget('name');
+    $request->session()->forget('id_user');
+    return redirect('/login');
 }
 
 

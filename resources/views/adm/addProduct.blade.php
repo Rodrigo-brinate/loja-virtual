@@ -96,7 +96,7 @@
        </div>
 
         <ul class="flex category ml-10 mt-4">
-          @foreach ($category as $item)
+          @foreach ($category_header as $item)
             <li class="ml-8">{{$item->category_name}}</li>
              @endforeach
         </ul>

@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Category;
+use App\Models\RegisterProduct;
+use App\Models\Cart;
+use App\Models\User;
 
 class CartController extends Controller
 {
-    public function index(Request $request){
+    public function index( Request $request){
 
         $ranking = $request
         ->session()
@@ -21,56 +25,53 @@ class CartController extends Controller
         ->session()
         ->get('name');
 
-        $category = DB::table('category')
+        ///busca o usuario
+        $user = User::where('name', $name)->first();
+        $id = $user->id;
+
+        /// busca as categorias 
+        $category = Category::select('category_name')
         ->limit(10)
         ->get();
 
-        $product = DB::table('cart')
+        //faz a busca dos produtos que estão no carrinho
+        $products = DB::table('cart')
         ->join('products', 'products.id', '=', 'cart.product_id')
         ->where('cart.user_id', '=', $user_id)
         ->get();
 
+        // gera o o valor total dos produtos no carrinho 
         $total = 0;
-        foreach ($product as $item){
+    foreach ($products as $item){
            $total += $item->value;
         }
-             
         return view('cart',
          [
         'ranking' => $ranking,
         'name' => $name,
         'category' => $category,
-        'product' => $product,
+        'products' => $products,
         'total' => $total
         ]);
     }
 
-    public function add($id, Request $request){
+    public function create($id, Request $request){
         if ($request->session()->get('id_user')){
-        $product = DB::table('cart')
-        ->where('product_id', '=', $id)
-        ->first();
-
+            $product = Cart::where('product_id', $id)->first();
         if($product){
-
             return redirect('/product'.'/'.$id);
-
         }else{
-
-            DB::table('cart')
-            ->insert(
-                [
-                    'product_id' => $id,
-                     'user_id' => $request
-                     ->session()
-                     ->get('id_user')]
-            );
-
+            Cart::create([
+                'product_id' => $id,
+                'user_id' => $request
+                ->session()
+                ->get('id_user')
+            ]);
             return redirect('/product'.'/'.$id);
-        }}else{
+        }
+    }else{
             return redirect('/login');
         }
-       
     }
 
 
@@ -78,7 +79,7 @@ class CartController extends Controller
 
         $product = DB::table('cart')->where('cart.product_id', '=', $id);
         if($product){
-            DB::table('cart')->where('cart.product_id', '=', $id)->delete();
+        Cart::where('cart.product_id', '=', $id)->delete();
             return redirect('/cart');
         }
     }

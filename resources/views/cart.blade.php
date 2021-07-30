@@ -109,8 +109,10 @@ background-image: url(./img/menu.png);
  <br><br>
   <ul>
     
-    @foreach ($product as $item)
+    @foreach ($products as $item)
    
+  
+      
   
     <li class="flex justify-between">
       <div class="flex">
@@ -119,10 +121,11 @@ background-image: url(./img/menu.png);
         <h6>{{$item->product_name}}</h6>
       </a> 
       <p class="cart-img ml-8 ">valor: &nbsp; R$ {{$item->value}}</p></div>
-      <a href="delete-cart/{{$item->id}}">
+      <a href="deleteCart/{{$item->id}}">
       <img src="./img/excluir.png" class="w-5 h-5 mr-16" alt=""></a>
     </li>
     <br>
+    
     @endforeach
      
   </ul>

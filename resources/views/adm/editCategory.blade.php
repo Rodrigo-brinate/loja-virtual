@@ -83,14 +83,14 @@ background-image: url(./img/menu.png);
        </div>
 
         <ul class="category flex ml-10 mt-4">
-          @foreach ($category as $item)
+          @foreach ($category_header as $item)
             <li class="ml-8">{{$item->category_name}}</li>
              @endforeach
         </ul>
 
 <button class="mt-2 p-2 bg-gray-100 border-gray border-2" onclick="category()">categorias <sub>﹀</sub></button>
         <ul id="category" class="category-mobile  ml-10 mt-4 hidden">
-          @foreach ($category as $item)
+          @foreach ($category_header as $item)
             <li class="ml-8">{{$item->category_name}}</li>
              @endforeach
         </ul>
@@ -109,15 +109,22 @@ background-image: url(./img/menu.png);
               
             </tr>
           </thead>
+         
+              
+          
           <tbody>
            
                   
              <form action="" method="post">
             <tr>
                 @csrf
-              <th scope="row"> <input type="text" name="name" value="{{$category->category_name}}"></th>
+              <th scope="row">
+                 <input type="text" name="name" value="{{$category->category_name}}">
+                </th>
               
-              <td ><button style="border: none" class="edit" type="submit">salvar</button></td>
+              <td >
+                <button style="border: none" class="edit" type="submit">salvar</button>
+              </td>
             </tr> 
         </form>
            
