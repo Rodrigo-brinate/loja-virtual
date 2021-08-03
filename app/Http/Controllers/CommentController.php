@@ -30,12 +30,18 @@ if ($request->session()->get('id_user')){
         ->get('id_user');
 
         var_dump($clacification);
-        
+        $rand = uniqid(rand(), true);
+        var_dump($rand);
+        $identification = str_replace('.', '', $rand);
+
+        var_dump($identification);
+
         Comment::create([
             'user_id' => $request->session()->get('id_user'),
              'product_id' => $id,
              'clacification' => $clacification,
              'comment' => $comment,
+             'identification' => $rand
         ]);
     
         return redirect('/product'.'/'.$id);
@@ -49,4 +55,16 @@ if ($request->session()->get('id_user')){
         return redirect('/login');
 
     }
-}}
+}
+
+
+
+public function delete($id){
+   
+    Comment::where('identification', $id)->delete();
+    return back();
+
+
+}
+
+}

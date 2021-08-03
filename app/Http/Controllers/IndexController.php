@@ -15,19 +15,20 @@ class IndexController extends Controller
 
        // $product = DB::table('products')->orderBy('id', 'desc')->get();
       
+     //var_dump(uniqid(rand(), true));
 
         //checks if exist a session
         $name = $request->session()->get('name');
 
         if ($name){
             
-  $user = User::where('name', $name)->first();
-  $id = $user->id;
+  //$user = User::where('name', $name)->first();
+  //$id = $user->id;
         $ranking = $request->session()->get('ranking');
      
             return view('index', [
                  'name' => $name,
-                 'id' => $id,
+                // 'id' => $id,
                  'ranking' => $ranking,
                  'product' => $product,
                  'category' => $category

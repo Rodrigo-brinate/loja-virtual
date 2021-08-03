@@ -119,14 +119,20 @@ class CategoryController extends Controller
         if ($ranking == 2 || $ranking == null){
             return redirect('/');
         }else{
-            $category_header = Category::select('category_name')
+            $category = Category::select('category_name')
             ->limit(10)
             ->get();
 
         //$category = DB::table('category')->where('id', '=', $id)->first();
-        $category = Category::where('id', '=', $id)->first();
-        var_dump($category->category_name);
-        return view('adm.editCategory' , ['category'=> $category,'category_header'=> $category_header, 'ranking'=> $ranking]);
+        $category_edit = Category::where('id', '=', $id)->first();
+
+        //var_dump($category_header);
+
+        return view('adm.editCategory' , [
+        'category_edit'=> $category_edit,
+        'category'=> $category,
+        'ranking'=> $ranking
+    ]);
     }
     }
 

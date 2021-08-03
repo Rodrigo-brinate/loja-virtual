@@ -10,7 +10,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
-//use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,8 +83,13 @@ Route::get('/favorite',            [FavoriteController::class, 'index'])->name('
 Route::get('/deleteFavorite/{id}', [FavoriteController::class, 'delete'])->name('app.favoriteDelete');
 
 
-
-
-
 Route::post('comment/', [CommentController::class, 'create'])->name('app.addComment');
+Route::get('comment/delete/{id}', [CommentController::class, 'delete'])->name('app.deleteComment');
+
+
+Route::get('/manangerUser', [UserController::class, 'index'])->name('app.manangeUser');
+Route::get('/edit/user/{id}', [UserController::class, 'edit'])->name('app.editUser');
+Route::post('/edit/user', [UserController::class, 'update'])->name('app.updateUser');
+
+
 

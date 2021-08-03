@@ -1,26 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" >
-    <link rel="stylesheet" href="./css/menuAdm.css">
-    <title>Home</title>
-</head>
-<body>
-    
-    <div class="menu1">
-        <a href="{{route('adm.index')}}"><h2 class="menu1">Dashbord</h2></a>
-        <ul class="menu1">
-            <a href="{{route('adm.addProduct')}}"><li>adicionar produto</li></a>
-            <a href="{{route('adm.viewProduct')}}"><li>ver produto</li></a>
-            @if ($ranking == 1)
-               <a href="{{route('adm.userView')}}"><li>gerenciar usuarios</li></a> 
-            @endif
+<link rel="stylesheet" href="../../css/menuAdm.css">
+
+<br>
+
+<div id="menu" class="bg-gray-200 h-100  p-4 menu">
+    <ul>
+        <li class=" mt-4"> 
+          <img class=" inline w-6" src="../../img/home.png" alt=""> 
+          &nbsp;  home
+        </li>
+        @if ($ranking == 1 || $ranking == 2)
             
-            <a href="{{route('adm.addCategory')}}"><li>adicionar categirias</li></a>
-            <a href="{{route('adm.categoryView')}}"><li>ver categirias</li></a>
-           <a href="{{route('app.index')}}"><li>voltar a loja</li></a>
-        </ul>
-    </div>
+            <a class="no-underline text-black" href="{{route('adm.addProduct')}}">
+                <li class=" mt-4"> <img class=" inline w-6" src="../../img/add.png" alt=""> 
+                    &nbsp; adicionar produto
+                </li>
+            </a>
+
+            <a class="no-underline text-black" href="{{route('adm.viewProduct')}}">
+                <li class="mt-4" >
+                    <img class=" inline w-6" src="../../img/altere.png" alt=""> 
+                    &nbsp; gerenciar produtos
+                </li>
+            </a>
+
+            <a class="no-underline text-black" href="{{route('adm.addCategory')}}">
+                <li class="mt-4">
+                    <img class=" inline w-6" src="../../img/add-category.png" alt=""> 
+                    &nbsp; adicionar categoria
+                </li>
+            </a>
+
+            <a class="no-underline text-black" href="{{route('adm.categoryView')}}">
+                <li class="mt-4">
+                    <img class=" inline w-6" src="../../img/edit-category.png" alt=""> 
+                    &nbsp; gerenciar categorias
+                </li>
+            </a>
+        @endif
+        @if ($ranking == 1 )
+        <a class="no-underline text-black" href="{{route('app.manangeUser')}}">
+            <li class="mt-4">
+                <img class=" inline w-6" src="../../img/manange-user.png" alt=""> 
+                &nbsp; gerenciar usuários
+            </li>
+        </a>
+        @endif
+
+        <a class="no-underline text-black" href="{{route('app.logout')}}">
+            <li class="mt-4">
+               <img class=" inline w-6" src="../../img/logout.png" alt=""> 
+               &nbsp; sair
+            </li>
+        </a>
+
+    </ul>
+</div>
+
+
+<script src="../../js/menu-button.js"></script>

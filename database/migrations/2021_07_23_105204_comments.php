@@ -21,6 +21,7 @@ class Comments extends Migration
             $table->foreign('product_id')->references('id')->on('products');
             $table->integer('clacification');
             $table->text('comment');
+            $table->text('identification');
             $table->timestamps();
         });
     }

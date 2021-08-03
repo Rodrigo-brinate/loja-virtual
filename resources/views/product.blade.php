@@ -1,83 +1,9 @@
+@component('partials.head')
+    <title>produto</title>
+@endcomponent
+@include('partials.header')
+    
 
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-   
-    <title>home</title>
-</head>
-<style>
-
-.search {
-    background-image: url(/img/search.png);
-    background-repeat: no-repeat;
-    background-position: right;
-}
-
-.card {
-    display: inline-block;
-}
-
-.card-title {
-    height: 24vh;
-}
- 
-@media only screen and (max-width: 940px){
-  .category{
-    display: none;
-  }
-}
-@media only screen and (max-width: 620px){
- #header {
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
-   width: max-content;
- }
-}
-
-
-</style>
-<body>
-    <header class="pt-4 pb-4 pl-2 pr-2">
-        <div id="header" class="flex justify-between items-center ">
-          <a class="no-underline text-black" href="{{ route('app.index') }}">
-        <h2 class="ml-2 text-2xl">logo</h2>
-          </a>
-        <input placeholder="pesquisar" class="border-b-2 border-black p-4 search" type="search"  name="" id="">
-
-        <div class="flex mr-10">
-
-            <img class="p-4 w-16 h-16" src="../img/favorite.png" alt="">
-<a href="{{route('app.cart')}}">
-            <img class="p-4 w-16 h-16" src="../img/cart.png" alt="">
-</a>
-<a href="{{route('app.profile')}}">
-            <img class="p-4 w-16 h-16" src="../img/profile.png" alt="">
-</a>
-          </div>
-       </div>
-
-        <ul class="category flex ml-10 mt-4">
-          @foreach ($category as $item)
-            <li class="ml-8">{{$item->category_name}}</li>
-             @endforeach
-        </ul>
-
-<button class="mt-2 p-2 bg-gray-100 border-gray border-2" onclick="category()">categorias <sub>﹀</sub></button>
-        <ul id="category" class="category-mobile  ml-10 mt-4 hidden">
-          @foreach ($category as $item)
-            <li class="ml-8">{{$item->category_name}}</li>
-             @endforeach
-        </ul>
-        
-    </header>
-</div>
  
     <br><br>
 
@@ -106,8 +32,7 @@
 
 
 
-    </div>
-
+   
 <h3 class="mx-8">{{$product[0]->product_name}}</h3>
 <h6 class="ml-8 mt-2 text-green-600">{{$product[0]->value}}</h6>
 <br><br><br>
@@ -159,6 +84,8 @@
     
 
 <div class=" mx-16">
+  <div class="flex justify-between">
+    <div>
   <p class="flex"><img class="ml-4" src="../img/profile.png" alt="">{{$item->name}}</p>
   <p >{{$item->comment}}</p>
 
@@ -209,31 +136,38 @@
       </p>
           @break
       @default
-          
+          <div>
   @endswitch
-  
 </div>
+  @if ($email == $item->email)
+    <a href="../comment/delete/{{$item->identification}}"><img class="w-8 mt-8 h-8" src="../img/excluir.png" alt=""></a>
+@endif
+</div>
+</div>
+</div>
+
+
 <br><br><br>
 @endforeach
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     
 
-    <script>
-function category(){
-var category = document.getElementById('category')
-console.log(category.classList)
-if (category.classList == 'category-mobile ml-10 mt-4 hidden'){
-  category.classList.remove('hidden')
-}else{
-  category.classList.add('hidden')
-}
-
-
-
-}
-
-
-    </script>
+  </div>
+  </div>
+  
     </body>
+
+    <script>
+      function category(){
+      var category = document.getElementById('category')
+      console.log(category.classList)
+      if (category.classList == 'category-mobile ml-10 mt-4 hidden'){
+        category.classList.remove('hidden')
+      }else{
+        category.classList.add('hidden')
+      }
+    }
+          </script>
+
 
     </html>

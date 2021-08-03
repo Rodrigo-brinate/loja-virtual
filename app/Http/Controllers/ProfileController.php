@@ -15,7 +15,7 @@ class ProfileController extends Controller
 
       
         $profile = User::where('email', '=', $email)->first();
-        
+        //var_dump($name);
         if($name){
 
          
@@ -25,8 +25,14 @@ class ProfileController extends Controller
 
 
 
-            return view('profile', [ 'category' => $category, 'ranking' => $ranking, 'profile' => $profile]);
+            return view('profile', 
+            [ 
+                'category' => $category,
+                 'ranking' => $ranking,
+                  'profile' => $profile
+                ]);
         }else{
+
             return redirect('/login');
         }
      

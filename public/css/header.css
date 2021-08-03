@@ -1,152 +1,39 @@
-*{
-    margin: 0;
-    box-sizing: border-box;
-}
 
-html, body {
-    width: 100%;
-    height: 100%;
-}
-
-.container1 {
-    display: flex;
-
-}
-
-header{
-    background-color: rgb(108, 194, 243);
-    width: 100%;
-}
-
-
-.rigth {
-    display: inline;
-    align-items:flex-end;
-    justify-content: end;
-}
-
-.logo {
-   width: 10%;
-   justify-content: start;
-   margin-left: 2%;
-}
-
-span {
-    display: inline-block;
-    margin-left: 15%;
-    width: 30%;
-}
 
 .search {
-    padding: 15px;
-    width: 100%;
-    border-radius: 8px;
-    border: 1px solid black;
+    background-image: url(/img/search.png);
+    background-repeat: no-repeat;
+    background-position: right;
 }
 
-.cart {
-  width: 2%;
-  margin-left: 2%;
-}
-
-.favorites {
-    width: 20px;
-    margin-left: 2%;
-}
-
-.categories {
-    margin-top: 2%;
-}
-
-.categories li {
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
+.card {
     display: inline-block;
-    background-color: rgb(158 240 255 / 20%);
-    padding: 5px;
-    border-radius: 8px;
 }
 
-.profile {
-    color: white;
-    margin-top: 2%;
-    display: inline-block;
-    margin-left: 2%;
+.card-title {
+    height: 24vh;
 }
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-a:hover{
-    text-decoration: none;
-    color: inherit;
-}
-
-.adm {
-    padding: 10px;
-    background: #fff;
-    border-radius: 8px;
-    margin-left: 5%;
-}
-
-
-@media only screen and (max-width: 800px) {
-    .categories {
+.category-responsive {
     display: none;
-    }
-    h5 {
-        font-size: 1rem;
-    }
-    .logo {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
+}
+ 
+@media only screen and (max-width: 940px){
+  .category{
+    display: none;
+  }
+  .category-responsive {
+      display: block;
+  }
+}
 
-    span {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-    }
-    .adm {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        width: max-content;
-        margin-top: 20px;
-    }
-    .profile {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        width: max-content;
-    }
-    .cart {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        margin-top: 10px;
-        width: 3%;
-    }
-    .favorites {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-    }
-
-   
-
-
-
-
-
-
+@media only screen and (max-width: 620px){
+ #header {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: max-content;
+ }
+}
 
 
 

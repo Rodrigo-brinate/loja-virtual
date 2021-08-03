@@ -12,7 +12,7 @@ use App\Models\User;
 class CartController extends Controller
 {
     public function index( Request $request){
-
+if ($request->session()->get('name')){
         $ranking = $request
         ->session()
         ->get('ranking');
@@ -53,6 +53,9 @@ class CartController extends Controller
         'products' => $products,
         'total' => $total
         ]);
+    }else{
+        return redirect('/login');
+    }
     }
 
     public function create($id, Request $request){
