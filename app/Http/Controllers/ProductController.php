@@ -112,9 +112,9 @@ public function store(Request $request){
     $value = $request->input('value');
     $photo_main = $request->file('main');
     $category_id = $request->input('category');
-        
+        var_dump($photo_main);
 
-    var_dump(str_replace('/','',$name_product ));
+    //var_dump(str_replace('/','',$name_product ));
     $name_product = str_replace('/','',$name_product );
 
     $name_photo_main = uniqid(date('HisYmd'));
