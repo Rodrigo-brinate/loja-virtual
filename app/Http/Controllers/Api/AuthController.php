@@ -17,19 +17,22 @@ class AuthController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        $id  = User::select('id')->where('email', $request->email)->first();
-//var_dump($request->email);
-        return $this->respondWithToken($token, $id);
+        $user  = User::where('email', $request->email)->first();
+        $id = $user->id;
+        $ranking= $user->ranking;
+var_dump($user->id);
+        return $this->respondWithToken($token, $id, $ranking);
     }
 
-    protected function respondWithToken($token,$id)
+    protected function respondWithToken($token,$id, $ranking)
     {
 
         
         return response()->json([
 
             'access_token' => $token,
-            'id' => $id->id,
+            'ranking'=> $ranking,
+            'id' => $id,
             'token_type' => 'bearer',
             'expires_in' => auth('api')->factory()->getTTL() * 60
         ]);

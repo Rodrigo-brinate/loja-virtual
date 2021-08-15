@@ -153,6 +153,8 @@ public function store(Request $request){
             # get the image of form 
         $images =  $request->file('image');
 
+        var_dump($images);
+
             # wallks the array of image capitured of form
         foreach ($images as $image){
 
@@ -164,6 +166,7 @@ public function store(Request $request){
                 # get the extension of file
             $extension = $image->extension();
 
+           
                 # define the name of file
             $nameFile = "{$name}.{$extension}";
 

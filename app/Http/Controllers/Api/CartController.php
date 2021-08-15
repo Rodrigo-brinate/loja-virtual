@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Cart;
 
 class CartController extends Controller
 {
@@ -31,9 +32,19 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id_user, $id_product,Request $request)
     {
-        //
+
+        if (Cart::where('user_id', $id_user )->where('product_id', $id_product)->first()){
+
+        }else{
+            Cart::create([
+            'product_id' => $id_product,
+            'user_id' => $id_user
+        ]);
+        }
+
+        
     }
 
     /**
@@ -65,8 +76,12 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_user, $id_product,Request $request)
     {
-        //
+        if (Cart::where('user_id', $id_user )->where('product_id', $id_product)->first()){
+            Cart::where('user_id', $id_user )->where('product_id', $id_product)->delete();
+        }else{}
     }
+
+    
 }

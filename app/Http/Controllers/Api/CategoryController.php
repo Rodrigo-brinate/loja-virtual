@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Product;
 
 class CategoryController extends Controller
 {
@@ -38,6 +39,15 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function filter($id, Request $request)
+    {
+        $product = Product::where('category_id', $id)->get();
+        
+        return response()->json($product);
+    }
+
+
     public function show($id)
     {
         //
@@ -64,5 +74,11 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function name($id){
+       $category = Category::select('category_name')->where('id', $id)->first();
+       return response()->json($category);
     }
 }

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Comment;
+use App\Models\Cart;
 
 class ProductController extends Controller
 {
@@ -18,9 +20,18 @@ class ProductController extends Controller
     public function index($id)
     {
         $product = DB::table('products')
-        ->join('images', 'products.id', '=', 'images.product_id')->where('images.product_id', '=', $id)->get();
+        ->join('images', 'products.id', '=', 'images.product_id')->where('products.id', '=', $id)->get();
        //var_dump($product);
+
+
+       if(empty($product)){
+        $product = DB::table('products')->where('products.id', '=', $id)->get();
         return response()->json($product); 
+       }else{
+        $product = DB::table('products')->where('products.id', '=', $id)->get();
+          return response()->json($product);  
+       }
+        
     }
 
     /**
@@ -43,7 +54,8 @@ class ProductController extends Controller
         $user_id = $request->input('id');
 
         var_dump($request->file('image'));
-        var_dump($request->input('image'));
+       // var_dump($request->input('image'));
+        
         
     
         //var_dump(str_replace('/','',$name_product ));
@@ -85,9 +97,14 @@ class ProductController extends Controller
                 # get the image of form 
             $images =  $request->file('image');
     
+
+
+
+
                 # wallks the array of image capitured of form
             foreach ($images as $image){
     
+                var_dump($image);
     
                     # generate the name ramndomic
                 $name = uniqid(date('HisYmd'));
@@ -117,10 +134,23 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $product = Product::select('*')->get();
+        return response()->json($product); 
     }
+
+
+
+  public function search(Request $request){
+
+      $product = $request->input('name');
+    $pesquisa = Product::where('product_name', 'like', '%'.$product.'%')
+    ->orWhere('product_description','like','%'.$product.'%')->get();
+
+    return response()->json($pesquisa); 
+  }
+
 
     /**
      * Update the specified resource in storage.
@@ -129,9 +159,16 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        //
+        Product::where('id', $id)
+        ->update([
+            'product_name' => $request->input('product_name'),
+            'product_description' => $request->input('product_description'),
+            'value' => $request->input('value')
+        ]);
+
+        return response()->json($id); 
     }
 
     /**
@@ -142,6 +179,11 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Product::where('id', $id)->first()){
+            Comment::where('product_id', $id)->delete();
+            Cart::where('product_id', $id)->delete();
+            Product::where('id', $id)->delete();
+        }else{
+    }
     }
 }

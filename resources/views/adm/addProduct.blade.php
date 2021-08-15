@@ -28,7 +28,7 @@
     @endif
     <br>
     <div>
-        <form class="block" action="{{ route('adm.addProduct') }}" enctype="multipart/form-data" method="post">
+       <form class="block" action="{{ route('adm.addProduct') }}" enctype="multipart/form-data" method="post">
           @csrf
           <span class="mx-auto block w-max"> nome do produto</span>
           <input name="name" class="mx-auto block w-max border-b-2 border-black" required type="text">
@@ -52,7 +52,7 @@
           <span class="mx-auto block mt-4 w-max">valor do produto (use ponto ao invéis de virgula)</span>
           <input class="mx-auto block w-max border-b-2 border-black p-4" name="value" required placeholder="Ex: 99.99" type="number" step=".01" name="" id="">
           
-          <button class="mx-auto block mt-4 bg-blue-500 p-3 rounded-lg w-max" type="submit">cadastrar</button>
+          <button  class="mx-auto block mt-4 bg-blue-500 p-3 rounded-lg w-max" type="submit">cadastrar</button>
         </form>
         <br>
         <br>
@@ -64,8 +64,7 @@
 </main>
 
     <script>
-
-
+     
     </script>
 </body>
 </html>
