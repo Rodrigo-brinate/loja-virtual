@@ -20,11 +20,12 @@ class AuthController extends Controller
         $user  = User::where('email', $request->email)->first();
         $id = $user->id;
         $ranking= $user->ranking;
-var_dump($user->id);
-        return $this->respondWithToken($token, $id, $ranking);
+        $name = $user->name;
+        $email = $user->email;
+        return $this->respondWithToken($token, $id, $ranking, $name, $email);
     }
 
-    protected function respondWithToken($token,$id, $ranking)
+    protected function respondWithToken($token,$id, $ranking, $name, $email)
     {
 
         
@@ -33,6 +34,8 @@ var_dump($user->id);
             'access_token' => $token,
             'ranking'=> $ranking,
             'id' => $id,
+            'email' => $email,
+            'name' => $name,
             'token_type' => 'bearer',
             'expires_in' => auth('api')->factory()->getTTL() * 60
         ]);

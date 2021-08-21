@@ -95,36 +95,37 @@ class ProductController extends Controller
             $lastProduct = $product->id;
     
                 # get the image of form 
-            $images =  $request->file('image');
+          //  $images =  $request->file('image');
     
 
 
 
 
                 # wallks the array of image capitured of form
-            foreach ($images as $image){
+          //  foreach ($images as $image){
     
-                var_dump($image);
+             //   var_dump($image);
     
                     # generate the name ramndomic
-                $name = uniqid(date('HisYmd'));
+            //    $name = uniqid(date('HisYmd'));
     
     
                     # get the extension of file
-                $extension = $image->extension();
+               // $extension = $image->extension();
     
                     # define the name of file
-                $nameFile = "{$name}.{$extension}";
+               // $nameFile = "{$name}.{$extension}";
     
                     # does upload of file
-                $upload = $image->storeAs('images', $nameFile);
+               // $upload = $image->storeAs('images', $nameFile);
     
                      # insert the image in database
-                Image::create([
-                    'image' => $upload,
-                    'product_id' => $lastProduct,
-                ]);
-         } }
+               // Image::create([
+               //     'image' => $upload,
+                  //  'product_id' => $lastProduct,
+               // ]);
+        // } 
+    }
      
     }
 
