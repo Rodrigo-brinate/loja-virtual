@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Product;
+use App\Models\User;
 
 class CategoryController extends Controller
 {
@@ -30,7 +31,31 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $name = $request->input('name');
+        $ranking = User::select('ranking')->where('id', $request->input('id'))->where('email', $request->input('email'))->first();
+         if ($ranking == '3' || $ranking == null){
+            return response()->json( ['res'=> 'e','response' => 'ação negada']);
+
+         }else{
+        if ($name == null){
+            return response()->json( ['res'=> 'e','response' => 'não foi possivel cadastrar categoria']);
+
+        }else{
+
+            $category = Category::where('category_name', $name)->first();
+            if ($category == null){
+
+            
+            return response()->json( ['res'=> 's','response' => 'categoria cadastrada com sucesso']);
+            Category::create([
+            'category_name' => $name,
+        ]);
+    }else{
+        return response()->json( ['res'=> 'e','response' => 'essa categoria já existe']);
+
+    }
+        }}
+        
     }
 
     /**
@@ -43,14 +68,25 @@ class CategoryController extends Controller
     public function filter($id, Request $request)
     {
         $product = Product::where('category_id', $id)->get();
+
+        $name = $request->input('name');
+        $ranking = User::select('ranking')->where('id', $request->input('id'))->where('email', $request->input('email'))->first();
+        if ($ranking == '3' || $ranking == null){
+
+        }else{
+            return response()->json( ['res'=> 'e','response' => 'ação negada']);
+            return response()->json($product);
+        }
         
-        return response()->json($product);
+        
     }
 
 
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+
+
+        return response()->json(Category::get());
     }
 
     /**
@@ -65,6 +101,15 @@ class CategoryController extends Controller
         //
     }
 
+
+    public function search(Request $request){
+
+        $product = $request->input('name');
+      $pesquisa = Category::where('category_name', 'like', '%'.$product.'%')->get();
+  
+      return response()->json($pesquisa); 
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -73,7 +118,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::where('category_id',$id)->delete();
+        Category::where('id', $id)->delete();
     }
 
 
