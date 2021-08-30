@@ -1,6 +1,6 @@
 esse projete tem a finalidade de criar uma loja virtual em que existe um administrador geral que pode gerenciar outros administrador sendo que os administrador tem permição para adicionar e romover produtos essas funcionalidades ainda não estão totalmente desenvolvida mas as imagens usadas nesse projeto são somenta para fins de ilustração
 
-link: http://projectloja.ga/
+link: http://loja-virtuall.epizy.com/loja/public/
 
 <b>!! este projeto esta hospedado em um servidor local porisso pode não está disponivel o tempo todo !!</b>
 
