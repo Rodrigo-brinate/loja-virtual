@@ -3,10 +3,10 @@
         <div id="header" class="flex justify-between items-center ">
 
             <a class="no-underline text-black" href="{{ route('app.index') }}">
-                <h2 class="ml-2 text-2xl">logo</h2>
+                <h2 class="ml-8 text-2xl">logo</h2>
             </a>
 
-            <input placeholder="pesquisar" class="border-b-2 border-black p-4 search" type="search"  name="" id="">
+            <input placeholder="pesquisar" class=" w-96 h-8 rounded-lg border-black p-4 search" type="search"  name="" id="">
 
             <div class="flex mr-10">
                 <a href="{{route('app.favorite')}}">
@@ -25,14 +25,17 @@
 
         <ul class="category flex ml-10 mt-4">
           @foreach ($category as $item)
-            <li class="ml-8">{{$item->category_name}}</li>
+          <a class="no-underline text-black" href="../../products/category/{{$item->id}}">
+            <li class="ml-8">{{$item->category_name}}</li></a>
           @endforeach
         </ul>
 
         <button id="" class="mt-2 p-2 bg-gray-100 category-responsive border-gray border-2" onclick="category()">categorias <sub>﹀</sub></button>
         <ul id="category" class="category-mobile  ml-10 mt-4 hidden">
           @foreach ($category as $item)
+          <a class="no-underline text-black" href="products/category/{{$item->id}}">
             <li class="ml-8">{{$item->category_name}}</li>
+          </a>
           @endforeach
         </ul>
         

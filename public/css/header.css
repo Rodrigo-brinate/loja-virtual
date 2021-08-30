@@ -4,10 +4,15 @@
     background-image: url(/img/search.png);
     background-repeat: no-repeat;
     background-position: right;
+    outline: none;
 }
 
 .card {
     display: inline-block;
+}
+
+body {
+  background-color: #ececec;
 }
 
 .card-title {

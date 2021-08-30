@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
+use App\Models\Product;
 
 class CategoryController extends Controller
 {
@@ -181,5 +182,25 @@ class CategoryController extends Controller
   
         return redirect('/categoryView');
         }
+
+        
+       
+    }
+ public function products($id, Request $request)
+    {
+        $product = Product::where('category_id', $id)->get();
+
+
+        
+         // DB::table('category')->where('id', '=', $id)->delete();
+         $category = Category::all();
+          
+          //Storage::delete('images.'.$product);
+  
+          return view('categoryProduct' , [
+            'product'=> $product,
+            'category'=> $category,
+           
+        ]);
     }
 }

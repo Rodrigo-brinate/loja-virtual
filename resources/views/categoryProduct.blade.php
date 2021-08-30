@@ -14,23 +14,23 @@
         <div class=" w-4/5 mx-auto flex">
 
           <div class="rounded-full ml-2 pt-3 bg-white img-category ">
-            <img class=" w-3/5  mx-auto" src="./img/watch.jpg" alt="">
+            <img class=" w-3/5  mx-auto" src="../../img/watch.jpg" alt="">
           </div>
             
             <div class="rounded-full ml-2 pt-7  bg-white img-category ">
-              <img class="w-3/5  mx-auto " src="./img/phone.jpg" alt="">
+              <img class="w-3/5  mx-auto " src="../../img/phone.jpg" alt="">
             </div>
             <div class="rounded-full ml-2 pt-7  bg-white img-category ">
-              <img class="w-3/5  mx-auto " src="./img/fone.jpg" alt="">
+              <img class="w-3/5  mx-auto " src="../../img/fone.jpg" alt="">
             </div>
             <div class="rounded-full ml-2 pt-7  bg-white img-category ">
-              <img class="w-3/5  mx-auto " src="./img/tv-box.webp" alt="">
+              <img class="w-3/5  mx-auto " src="../../img/tv-box.webp" alt="">
             </div>
             <div class="rounded-full ml-2 pt-7  bg-white img-category ">
-              <img class="w-3/5  mx-auto " src="./img/carregador.webp" alt="">
+              <img class="w-3/5  mx-auto " src="../../img/carregador.webp" alt="">
             </div>
             <div class="rounded-full ml-2 pt-7  bg-white img-category ">
-              <img class="w-3/5  mx-auto " src="./img/tv-box.webp" alt="">
+              <img class="w-3/5  mx-auto " src="../../img/tv-box.webp" alt="">
             </div>
 
         </div>
@@ -87,7 +87,7 @@
 
 
 
-<link rel="stylesheet" href="./css/index.css">
+<link rel="stylesheet" href="../../css/index.css">
 <script>
   function category(){
   var category = document.getElementById('category')

@@ -14,7 +14,7 @@
     </div>
   @endif
 
-    <form class="login" method="post" action="{{route('app.login')}}" >
+    <form class="login border-2 border-gray-300 shadow-md w-80 mx-auto" method="post" action="{{route('app.login')}}" >
 @csrf
         <h3 class="block mx-auto w-max">Login</h3>
 
@@ -22,15 +22,15 @@
     @if ($email)
       <input class="login block mx-auto p-2 border-b-2 border-black bg-gray-100" value="{{$email}}" name="email" type="email">
     @else
-      <input class="login block mx-auto p-2 border-b-2 border-black bg-gray-100" value="{{old('email')}}" name="email" type="email">
+      <input class="login block mx-auto p-2 border-2 border-gray-500 rounded-lg bg-white" value="{{old('email')}}" name="email" type="email">
     @endif
       <span class="login block mx-auto w-max mt-4">digite sua senha</span>
     @if ($password)
-      <input class="login block mx-auto p-2 border-b-2 border-black bg-gray-100" value="{{$password}}" name="password" type="password">
+      <input class="login block mx-auto p-2 border-2 border-gray-500 rounded-lg bg-gray-100" value="{{$password}}" name="password" type="password">
     @else
-      <input class="login block mx-auto p-2 border-b-2 border-black bg-gray-100" value="{{old('password')}}" name="password" type="password">
+      <input class="login block mx-auto p-2 border-2 border-gray-500 rounded-lg bg-gray-100" value="{{old('password')}}" name="password" type="password">
     @endif
-      <button class="login block mx-auto mt-4 bg-yellow-500 px-3 py-2 rounded-md" type="submit">Entrar</button>
+      <button class="login block mx-auto w-40 mt-4 bg-yellow-500 px-3 py-2 rounded-md" type="submit">Entrar</button>
     <br/>
 
     <p class="block mx-auto w-max">Ainda não possui uma conta?

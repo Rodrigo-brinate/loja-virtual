@@ -14,9 +14,14 @@ class ProductController extends Controller
     public function index($id, Request $request){
 
 
-        $product = DB::table('products')
-        ->join('images', 'products.id', '=', 'images.product_id')->where('images.product_id', '=', $id)->get();
-                //checks if exist a session
+        $product = DB::table('products')->where('id', $id)->get();
+            //->join('images', 'products.id', '=', 'images.product_id')->where('images.product_id', '=', $id)->get();
+             
+            
+            
+            
+            
+            //checks if exist a session
                 $name = $request->session()->get('name');
                 $email = $request->session()->get('email');
 
@@ -29,7 +34,7 @@ class ProductController extends Controller
                 $category = Category::select('category_name')
             ->limit(10)
             ->get();
-          
+          //var_dump($product);
             
                 if ($name){
                     if ($commnet){
@@ -151,12 +156,12 @@ public function store(Request $request){
         $lastProduct = $product->id ;
 
             # get the image of form 
-        $images =  $request->file('image');
+        //$images =  $request->file('image');
 
-        var_dump($images);
+        //var_dump($images);
 
             # wallks the array of image capitured of form
-        foreach ($images as $image){
+      /*  foreach ($images as $image){
 
 
                 # generate the name ramndomic
@@ -179,11 +184,11 @@ public function store(Request $request){
                 'product_id' => $lastProduct
             ]);
 
-            $ranking = $request
+            
+            
+        }*/$ranking = $request
             ->session()
             ->get('ranking');
-            
-        }
         $category_header = Category::select('category_name')
         ->limit(10)
         ->get();

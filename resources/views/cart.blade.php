@@ -6,7 +6,7 @@
 
 
 </div>
- <br> <h1 class="mx-auto d-block w-max">carrinho</h1>
+ <br> <h1 class="mx-auto d-block w-max">Carrinho</h1>
   <ul>
     
    

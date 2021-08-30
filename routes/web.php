@@ -62,6 +62,7 @@ Route::get('/categoryView', [CategoryController::class, 'show'])->name('adm.cate
 Route::get('/delete/category/{id}', [CategoryController::class, 'destroy'])->name('adm.delete');
 Route::get('/edit/category/{id}', [CategoryController::class, 'edit'])->name('adm.edit');
 Route::post('/edit/category/{id}', [CategoryController::class, 'update'])->name('adm.edit');
+Route::get('/products/category/{id}', [CategoryController::class, 'products'])->name('adm.edit');
 
 
 

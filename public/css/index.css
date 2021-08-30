@@ -6,11 +6,28 @@
 }
 
 .card {
-    display: inline-block;
+    display: inline-table;
+    width: 200px;
 }
 
 .card-title {
     height: 24vh;
+}
+
+.pt-7 {
+    padding-top: 3%;
+}
+
+.pt-3 {
+    padding-top: 1.5% !important;
+}
+.img-category {
+    width: 12vw;
+    height: 12vw;
+}
+
+.card-body {
+    margin-top: -30px;
 }
 
 /*

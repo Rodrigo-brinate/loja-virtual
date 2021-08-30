@@ -7,53 +7,39 @@
  
     <br><br>
 
-    <div id="carouselExampleInterval" class="carousel slide mx-4" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="1000">
-                <img src="{{ url("storage/{$product[0]->photo_main}") }}" class="d-block w-25" alt="...">
+    
+        <div>
+                <img src="{{ url("storage/{$product[0]->photo_main}") }}" class="d-block w-2/5 float-right mr-8" alt="...">
               </div>
-            @foreach ($product as $item)
-            
-          <div class="carousel-item " data-bs-interval="10000">
-            <img src="{{ url("storage/{$item->image}") }}" class="d-block w-25" alt="...">
-          </div>
-       @endforeach
+           
         
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+ 
 
 
 
    
-<h3 class="mx-8">{{$product[0]->product_name}}</h3>
-<h6 class="ml-8 mt-2 text-green-600">{{$product[0]->value}}</h6>
-<br><br><br>
-<a class="cart-purshase bg-yellow-400 ml-8 rounded-lg no-underline text-black p-2" href="../cart/{{$product[0]->product_id}}">adicionar ao carrinho</a>
+<h3 class="mx-8 w-2/4 text-base">{{$product[0]->product_name}}</h3>
+
+<p class="description text-sm w-2/4 mx-8" >{{$product[0]->product_description}}</p>
+<h6 class="ml-8 mt-2 text-green-600">R$&nbsp;{{$product[0]->value}}</h6>
+<br>
+<a class="cart-purshase bg-yellow-400 ml-8 rounded-lg no-underline text-black p-2" href="../cart/{{$product[0]->id}}">adicionar ao carrinho</a>
 <a class="checkout bg-green-500 rounded-lg no-underline text-black p-2" href="">comprar</a>
 <br><br><br>
-<p class="description mx-8" >{{$product[0]->product_description}}</p>
+<br><br><br>
 
 
-<h2 class="mx-auto block mt-10 w-max">comentários</h2>
+<h2 class="mx-auto block mt-24 w-max">comentários</h2>
 <br>
-<br>
-<br>
+
 <form action="{{route('app.addComment')}}" method="post">
 @csrf
   
 <span class="commet mx-auto block font-bold text-lg w-max">escreva seu comentário</span>
-<textarea name="comment" class="mx-auto p-4 mt-2 block border-black border-b-2 w-max" placeholder="digite aqui" type="text"></textarea>
+<textarea name="comment" class="mx-auto p-4 mt-2 block rounded-2xl w-max" placeholder="digite aqui" type="text"></textarea>
 
-<input type="hidden" name="id" value="{{$product[0]->product_id}}">
-<select class="star mx-auto block w-max mt-4" name="clacification" >
+<input type="hidden" name="id" value="{{$product[0]->id}}">
+<select class="star rounded-lg p-2 mx-auto block w-max mt-4" name="clacification" >
     <option aria-required="true" selected value="1">
        selecione uma classificação para esse produto
     </option>
@@ -75,7 +61,7 @@
 </option>
 
   </select>
-<button class="comment mx-auto block w-max mt-4 p-3 rounded-lg bg-green-400" type="submit">comentar</button>
+<button class="comment px-8  mx-auto block w-32 mt-4 p-3 rounded-lg bg-green-400" type="submit">comentar</button>
 </form>
 <br><br><br><br><br><br><br>
 
